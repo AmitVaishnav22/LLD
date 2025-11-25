@@ -1,0 +1,4 @@
+Hello, this is a sample Google Doc.
+<img src='http://example.com/image.png' />
+<table><tr><td>Name</td><td>Age</td></tr><tr><td>Alice</td><td>30</td></tr><tr><td>Bob</td><td>25</td></tr></table>
+End of the document.
