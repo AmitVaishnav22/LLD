@@ -129,7 +129,9 @@ class paymentGatewayProxy(PaymentGateway):
         if not res:
             print(f"[Proxy] payment failed after retrying for {self._retries} times")
         return res
-
+    # keeping other methods for interface completeness
+    # we actually dont call these in our function since we are caling directly to the 
+    # concrete gateway methods via processPayment
     def validatePayment(self,request):
         return self._realGateway.validatePayment(request)
 
