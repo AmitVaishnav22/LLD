@@ -1,6 +1,6 @@
 from Facade import APP
 from Models.user import User
-from Strategies.UPIPayment import UPIPayment
+from Strategies.UPIPayment import UPIPayment as UPIPaymentStrategy
 
 
 if __name__ == "__main__":
@@ -29,8 +29,10 @@ if __name__ == "__main__":
 
     app.printUserCart(user)
 
-    order=app.checkOutNow(user,"Delivery",UPIPaymentStrategy("123456@upi"))
+    order=app.checkOutNow(user,"Delivery","UPI")
 
-    app.payForOrder(user,order)
+    print("Order Details:",order.get_order_id(),order.get_total())
+
+    app.payForOrder(order)
 
 

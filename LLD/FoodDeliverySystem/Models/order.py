@@ -1,7 +1,7 @@
 from abc import ABC,abstractmethod
 
 class Order(ABC):
-    _idx=0
+    _idx=1
     def __init__(self):
         Order._idx+=1
         self._order_id=Order._idx
@@ -25,7 +25,7 @@ class Order(ABC):
         pass
 
     def get_order_id(self):
-        return self._order_id
+        return Order._idx
 
     def set_user(self, user):
         self._user = user

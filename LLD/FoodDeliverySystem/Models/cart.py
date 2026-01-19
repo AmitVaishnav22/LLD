@@ -7,7 +7,7 @@ class Cart:
         if self._restaurant is None:
             print("Cart does not have an restaurant , set an restuarant")
             return 
-        self._items.add(item)
+        self._items.append(item)
 
     def get_total_cost(self):
         total=0

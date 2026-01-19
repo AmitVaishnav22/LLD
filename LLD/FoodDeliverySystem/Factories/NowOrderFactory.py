@@ -1,8 +1,13 @@
+from Factories.IOrderFactory import IOrderFactory
+from Models.deliverorder import DeliverOrder
+from Models.pickuporder import PickupOrder
+from datetime import datetime
+
 class NowOrderFactory(IOrderFactory):
 
     def create_order(self,user,cart,restaurant,menu_items,_payment_strategy,totalcost,orderType):
         order=None
-        if orderType=="Deliver":
+        if orderType=="Delivery":
             deliverOrder=DeliverOrder()
             deliverOrder.setaddress(user.get_address())
             order=deliverOrder
@@ -12,10 +17,10 @@ class NowOrderFactory(IOrderFactory):
             order=pickupOrder
 
         order.set_user(user)
-        order.set_cart(cart)
+        #order.set_items(cart)
         order.set_restaurant(restaurant)
-        order.set_menu_items(menu_items)
+        order.set_items(menu_items)
         order.set_payment_strategy(_payment_strategy)
-        order.set_total_cost(totalcost)
-        order.set_order_time(datetime.now())
+        order.set_total(totalcost)
+        order.set_scheduled(datetime.now())
         return order

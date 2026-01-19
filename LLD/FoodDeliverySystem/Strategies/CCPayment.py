@@ -1,5 +1,4 @@
-
-
+from Strategies.IPaymentStrategy import IPaymentStrategy
 class CreditCardPayment(IPaymentStrategy):
     def __init__(self, card_number: str, card_holder: str, cvv: str, expiry_date: str):
         self.card_number = card_number

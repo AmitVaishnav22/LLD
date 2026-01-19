@@ -1,3 +1,7 @@
+from Factories.IOrderFactory import IOrderFactory
+from Models.deliverorder import DeliverOrder
+from Models.pickuporder import PickupOrder
+from datetime import datetime
 
 class ScheduleOrderFactory(IOrderFactory):
     def __init__(self,scheduled_time):
@@ -15,11 +19,10 @@ class ScheduleOrderFactory(IOrderFactory):
             order=pickupOrder
 
         order.set_user(user)
-        order.set_cart(cart)
+        #order.set_items(cart)
         order.set_restaurant(restaurant)
-        order.set_menu_items(menu_items)
+        order.set_items(menu_items)
         order.set_payment_strategy(_payment_strategy)
-        order.set_total_cost(totalcost)
-        order.set_scheduled_time(self.scheduled_time)
+        order.set_total(totalcost)
+        order.set_scheduled(datetime.now())
         return order
-    
